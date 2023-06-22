@@ -1,10 +1,8 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import Input from './components/Input';
 import TodoList from './components/TodoList';
 
-
-function App() {
-  const MainBox = styled.div`
+const MainBox = styled.div`
     min-width: 800px;
     max-width: 1200px;
     display: flex;
@@ -14,7 +12,7 @@ function App() {
     margin: 0 auto;
   `;
 
-  const TitleBox = styled.header`
+const TitleBox = styled.header`
     display: flex;
     height: 50px;
     width: 70%;
@@ -23,7 +21,7 @@ function App() {
     justify-content: space-between;
   `;
 
-  const InputBox = styled.div`
+const InputBox = styled.div`
     background-color: gainsboro;
     border-radius: 12px;
     justify-content: space-between;
@@ -34,7 +32,8 @@ function App() {
     gap: 20px;
   `;
 
-  
+
+function App() {
 
   return (
     <MainBox>

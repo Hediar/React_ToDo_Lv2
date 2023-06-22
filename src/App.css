@@ -22,3 +22,27 @@ h1 {
 .detail-header, .detail-main{
   padding: 0px 24px;
 }
+
+.add-form {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.add-input {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  width: 250px;
+  padding: 0 12px;
+}
+
+.input-button {
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  width: 140px;
+  cursor: pointer;
+}
