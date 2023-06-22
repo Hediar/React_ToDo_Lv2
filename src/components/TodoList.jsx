@@ -1,16 +1,20 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { completeStateToto, deleteTodo } from '../redux/modules/todos';
 
-function TodoList({todos, setTodos, listIsDone}) {
+// {todos, setTodos, listIsDone}
+function TodoList({listIsDone}) {
+  const todos = useSelector(todos => todos.todos);
+  const dispatch = useDispatch();
+  
 
-    
   return (
     <div>
-        <h2>{listIsDone ? '완료 목록' : '할 일 목록'}</h2>
+        <h2>{listIsDone ? '완료 목록' : '진행중'}</h2>
         {
             todos
             .filter((todo) => todo.isDone === listIsDone)
             .map((todo) =>{
-              console.log(todo);
               return (
                 <div 
                   key={todo.id}
@@ -23,39 +27,13 @@ function TodoList({todos, setTodos, listIsDone}) {
                   <p>{todo.contents}</p>
                   <p>{todo.isDone.toString()}</p>
                   <button onClick={() => {
-                    const newTodos = todos.map(item => {
-                      if (item.id === todo.id) {
-                        return {
-                          ...item, isDone: !item.isDone
-                        }
-                      } else {
-                        return item;
-                      }
-                    });
 
-                    setTodos(newTodos);
-                  }}>완료</button>
+                    dispatch(completeStateToto(todo));
+
+                  }}>{listIsDone ? '취소' : '완료'}</button>
                   <button onClick={() => {
-                    if (listIsDone === true) {
-                        const newTodos = todos.map(item => {
-                            if (item.id === todo.id) {
-                              return {
-                                ...item, isDone: !item.isDone
-                              }
-                            } else {
-                              return item;
-                            }
-                          });
-                          setTodos(newTodos);
-                        }
-                    else {
-                        const deletedTodos = todos.filter(item => {
-                            return item.id !== todo.id;
-                        });
-                        setTodos(deletedTodos);
-                }
-                    
-                }}>{listIsDone ? '취소' : '삭제'}</button>
+                  dispatch(deleteTodo(todo));
+                }}>삭제</button>
             </div>
             )
         })

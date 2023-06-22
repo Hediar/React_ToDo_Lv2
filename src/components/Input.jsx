@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import uuid from 'react-uuid';
+import { addTodo } from '../redux/modules/todos';
 
-function Input({todos, setTodos}) {
+function Input() {
+
+    const dispatch = useDispatch();
+
     const [title, setTitle] = useState('');
     const [contents, setContents] = useState('');
   return (
@@ -15,7 +20,10 @@ function Input({todos, setTodos}) {
                 isDone: false,
               };
             
-              setTodos([...todos, newTodo]);
+              // setTodos([...todos, newTodo]);
+              dispatch(addTodo(newTodo));
+              setTitle('');
+              setContents('');
           }}>
             <input 
               value={title} 
