@@ -4,12 +4,12 @@ import { combineReducers } from "redux";
 import todos from "../modules/todos";
 
 const rootReducer = combineReducers({
-    // modules key: value 
-    todos,
+  // modules key: value
+  todos,
 });
 
 // 리듀서를 가져와야 함
 
-const store = createStore(rootReducer); // reducer의 묶음 
+const store = createStore(rootReducer); // reducer의 묶음
 
 export default store;
