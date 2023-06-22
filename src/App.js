@@ -1,65 +1,57 @@
-
-import { useState } from 'react';
-import './App.css';
-import uuid from 'react-uuid';
+import { styled } from 'styled-components';
 import Input from './components/Input';
 import TodoList from './components/TodoList';
 
+
 function App() {
-  // const [title, setTitle] = useState('');
-  // const [contents, setContents] = useState('');
+  const MainBox = styled.div`
+    min-width: 800px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  `;
 
-  const [todos, setTodos] = useState([
-    {
-      id: uuid(),
-      title: '제목1',
-      contents: '내용1',
-      isDone: false,
-    },
-    {
-      id: uuid(),
-      title: '제목2',
-      contents: '내용2',
-      isDone: true,
-    },
-    {
-      id: uuid(),
-      title: '제목3',
-      contents: '내용3',
-      isDone: false,
-    },
-    {
-      id: uuid(),
-      title: '제목4',
-      contents: '내용4',
-      isDone: false,
-    },
-  ]);
+  const TitleBox = styled.header`
+    display: flex;
+    height: 50px;
+    width: 70%;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+  `;
 
+  const InputBox = styled.div`
+    background-color: gainsboro;
+    border-radius: 12px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 30px;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+  `;
+
+  
 
   return (
-    <div>
-      <header
-      style={{
-        padding: '10px',
-      }}
-      >
-        헤더
-      </header>
+    <MainBox>
+      <TitleBox>
+        <div>My Todo List</div>
+        <div>React</div>
+      </TitleBox>
 
-      <main
-        style={{
-        padding: '10px',
-      }}
-      >
-        <Input todos={todos} setTodos={setTodos}></Input>
-        
-        <div>
-          <h1>리스트 영역</h1>
-          <TodoList todos={todos} setTodos={setTodos} listIsDone={false}/>
-          <TodoList todos={todos} setTodos={setTodos} listIsDone={true}/>
-          
-        </div>
+      <InputBox>
+          <Input />
+      </InputBox>
+
+      <main>
+
+          <TodoList listIsDone={false}/>
+          <TodoList listIsDone={true}/>
+
       </main>
 
       <footer
@@ -67,9 +59,8 @@ function App() {
           padding: '10px',
       }}
       >
-        푸터
       </footer>
-    </div>
+    </MainBox>
   );
 }
 

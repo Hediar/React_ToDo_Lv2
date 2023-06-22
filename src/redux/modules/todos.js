@@ -56,10 +56,10 @@ export const deleteTodo = (payload) =>{
 };
 
 
-
 // 리듀서 
 const todos = (state = initialState, action) => {
-    
+    // console.log(state);
+    // localStorage.setItem('todos', JSON.stringify(state));
     switch (action.type) {
         case ADD_TODO:
             return [...state, action.payload];
@@ -79,11 +79,13 @@ const todos = (state = initialState, action) => {
             return state.filter((todo) => {
                 return todo.id !== action.payload.id
             });
+        
 
         default:
             return state;
     }
     
 }
+
 
 export default todos;
