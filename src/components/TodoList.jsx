@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { completeStateToto, deleteTodo } from '../redux/modules/todos';
+import { Link } from 'react-router-dom';
 
 // {todos, setTodos, listIsDone}
 function TodoList({listIsDone}) {
   const todos = useSelector(todos => todos.todos);
   const dispatch = useDispatch();
-  
 
   return (
     <div>
@@ -23,6 +23,7 @@ function TodoList({listIsDone}) {
                   margin: '20px',
                   padding: '10px',
                 }}>
+                  <Link to={`/todo/${todo.id}`}>상세보기</Link>
                   <h3>{todo.title}, {todo.id}</h3>
                   <p>{todo.contents}</p>
                   <p>{todo.isDone.toString()}</p>

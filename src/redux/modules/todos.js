@@ -55,15 +55,17 @@ export const deleteTodo = (payload) =>{
     };
 };
 
+
+
 // 리듀서 
 const todos = (state = initialState, action) => {
     
     switch (action.type) {
         case ADD_TODO:
-            return state = [...state, action.payload];
+            return [...state, action.payload];
 
         case COMPLETE_STATE_TODO:
-            return state = state.map((todo) => {
+            return state.map((todo) => {
                 if (todo.id === action.payload.id) {
                     return {
                         ...todo, isDone: !todo.isDone
@@ -74,7 +76,7 @@ const todos = (state = initialState, action) => {
             });
 
         case DELETE_TODO:
-            return state = state.filter((todo) => {
+            return state.filter((todo) => {
                 return todo.id !== action.payload.id
             });
 

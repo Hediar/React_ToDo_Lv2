@@ -41,7 +41,6 @@ function App() {
     <div>
       <header
       style={{
-        backgroundColor: '#f7e9c3',
         padding: '10px',
       }}
       >
@@ -50,7 +49,6 @@ function App() {
 
       <main
         style={{
-        backgroundColor: '#d9f7c3',
         padding: '10px',
       }}
       >
@@ -66,7 +64,6 @@ function App() {
 
       <footer
         style={{
-          backgroundColor: '#c3e9f7',
           padding: '10px',
       }}
       >
